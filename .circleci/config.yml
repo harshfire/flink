@@ -25,6 +25,14 @@ jobs:
       - run:
           name: Test
           command: ./mvnw test -T 32 -Dmaven.test.failure.ignore=true -fae
+      - run:
+          name: Save test results
+          command: |
+            mkdir -p ~/test-results/junit/
+            find . -type f -regex ".*/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
+          when: always      
+      - store_test_results:
+          path: ~/test-results  
       # Then run your tests!
 
 # Invoke jobs via workflows
