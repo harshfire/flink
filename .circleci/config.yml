@@ -21,7 +21,10 @@ jobs:
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
-          command: mvn clean install  -Dmaven.test.failure.ignore=true -fae
+          command: ./mvnw clean package -DskipTests
+      - run:
+          name: Test
+          command: ./mvnw test -T 32 -Dmaven.test.failure.ignore=true -fae
       # Then run your tests!
 
 # Invoke jobs via workflows
