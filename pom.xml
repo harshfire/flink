@@ -1601,8 +1601,8 @@ under the License.
 				<version>3.0.0-M5</version>
 				<configuration>
                     <argLine>${harnessArgLine}  @{argLine} </argLine>
-                    <threadCount>16</threadCount>
-			        <forkCount>16</forkCount>
+                    <threadCount>4</threadCount>
+			        <forkCount>4</forkCount>
 					<!-- enables TCP/IP communication between surefire and forked JVM-->
 					<forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory"/>
 					<reuseForks>${flink.reuseForks}</reuseForks>
