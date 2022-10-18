@@ -109,11 +109,11 @@ under the License.
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<harnessArgLine></harnessArgLine>
 		<flink.hadoop.version>2.8.5</flink.hadoop.version>
-		<flink.XmxMax>3072m</flink.XmxMax>
+		<flink.XmxMax>13072m</flink.XmxMax>
 		<!-- XmxMax / forkCountITCase -->
-		<flink.XmxITCase>1536m</flink.XmxITCase>
+		<flink.XmxITCase>11536m</flink.XmxITCase>
 		<!-- XmxMax / forkCountUnitTest -->
-		<flink.XmxUnitTest>768m</flink.XmxUnitTest>
+		<flink.XmxUnitTest>1768m</flink.XmxUnitTest>
 		<!-- Need to use a user property here because the surefire
 			 forkCount is not exposed as a property. With this we can set
 			 it on the "mvn" commandline in travis. -->
@@ -1601,8 +1601,8 @@ under the License.
 				<version>3.0.0-M5</version>
 				<configuration>
                     <argLine>${harnessArgLine}  @{argLine} </argLine>
-                    <threadCount>256</threadCount>
-			        <forkCount>256</forkCount>
+                    <threadCount>32</threadCount>
+			        <forkCount>32</forkCount>
 					<!-- enables TCP/IP communication between surefire and forked JVM-->
 					<forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory"/>
 					<reuseForks>${flink.reuseForks}</reuseForks>
