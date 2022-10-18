@@ -107,6 +107,7 @@ under the License.
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<harnessArgLine></harnessArgLine>
 		<flink.hadoop.version>2.8.5</flink.hadoop.version>
 		<flink.XmxMax>3072m</flink.XmxMax>
 		<!-- XmxMax / forkCountITCase -->
@@ -1599,6 +1600,10 @@ under the License.
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
+					<parallel>classes</parallel>
+                    <parallel>methods</parallel>
+                    <argLine>${harnessArgLine}  @{argLine} </argLine>
+                    <threadCount>256</threadCount>
 					<!-- enables TCP/IP communication between surefire and forked JVM-->
 					<forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory"/>
 					<reuseForks>${flink.reuseForks}</reuseForks>
@@ -1632,6 +1637,7 @@ under the License.
 						<junit.jupiter.execution.parallel.mode.classes.default>same_thread</junit.jupiter.execution.parallel.mode.classes.default>
 						<!-- automatically adjust parallelism based on available cpu/processor cores-->
 						<junit.jupiter.execution.parallel.config.strategy>dynamic</junit.jupiter.execution.parallel.config.strategy>
+						
 					</systemPropertyVariables>
 				</configuration>
 				<executions>
@@ -1646,7 +1652,7 @@ under the License.
 							<includes>
 								<include>${test.unit.pattern}</include>
 							</includes>
-							<forkCount>${flink.forkCountUnitTest}</forkCount>
+							<forkCount>256</forkCount>
 							<argLine>${flink.surefire.baseArgLine} -Xmx${flink.XmxUnitTest}</argLine>
 						</configuration>
 					</execution>
@@ -1667,7 +1673,7 @@ under the License.
 								     e.g., 'org.apache.flink.api.scala.typeutils.Foo$Bar$Foobar'. -->
 								<exclude>**/*$*</exclude>
 							</excludes>
-							<forkCount>${flink.forkCountITCase}</forkCount>
+							<forkCount>256</forkCount>
 							<argLine>${flink.surefire.baseArgLine} -Xmx${flink.XmxITCase}</argLine>
 							<reuseForks>false</reuseForks>
 						</configuration>
