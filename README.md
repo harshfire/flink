@@ -19,7 +19,7 @@ Learn more about Flink at [https://flink.apache.org/](https://flink.apache.org/)
 
 * Fault-tolerance with *exactly-once* processing guarantees
 
-* Natural back-pressure in streaming programs
+* Natural back-pressure in streaming program11s
 
 * Libraries for Graph processing (batch), Machine Learning (batch), and Complex Event Processing (streaming)
 
