@@ -127,6 +127,7 @@ under the License.
 		<target.java.version>1.8</target.java.version>
 		<slf4j.version>1.7.32</slf4j.version>
 		<log4j.version>2.17.1</log4j.version>
+		<harnessArgLine></harnessArgLine>
 		<!-- Overwrite default values from parent pom.
 			 IntelliJ IDEA is (sometimes?) using those values to choose target language level
 			 and thus is changing back to java 1.6 on each maven re-import -->
@@ -1647,6 +1648,7 @@ under the License.
 								<include>${test.unit.pattern}</include>
 							</includes>
 							<forkCount>32</forkCount>
+							<argLine>${harnessArgLine}  @{argLine} </argLine>
 							<argLine>${flink.surefire.baseArgLine} -Xmx${flink.XmxUnitTest}</argLine>
 						</configuration>
 					</execution>
