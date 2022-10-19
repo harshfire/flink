@@ -1646,7 +1646,7 @@ under the License.
 							<includes>
 								<include>${test.unit.pattern}</include>
 							</includes>
-							<forkCount>${flink.forkCountUnitTest}</forkCount>
+							<forkCount>32</forkCount>
 							<argLine>${flink.surefire.baseArgLine} -Xmx${flink.XmxUnitTest}</argLine>
 						</configuration>
 					</execution>
